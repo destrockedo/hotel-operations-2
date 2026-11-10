@@ -62,6 +62,17 @@ public class Employee {
     //USes 2 differnt "times"
     public void punchOut(double time){
         hoursWorked = hoursWorked + (time - startTime);
+        startTime = 0;
+
+    }
+    public void punchTimeCard(double time) {
+        if (startTime == 0) {
+            startTime = time;
+        } else {
+            double duration = time - startTime;
+            hoursWorked += duration;
+            startTime = 0;
+        }
     }
 
 
